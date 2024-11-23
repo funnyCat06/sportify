@@ -51,7 +51,6 @@ fun SportifyTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
         content = content
     )
 }
