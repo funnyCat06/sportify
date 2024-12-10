@@ -26,6 +26,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", "\"http://api.football-data.org/\"")
+        }
+        debug {
+            buildConfigField("String", "BASE_URL", "\"http://api.football-data.org/\"")
         }
     }
     compileOptions {
@@ -37,6 +41,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 

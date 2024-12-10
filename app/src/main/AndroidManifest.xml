@@ -13,9 +13,10 @@
         android:theme="@style/Theme.Sportify"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".sportify_app.presentation.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.Sportify">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
