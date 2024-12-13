@@ -26,11 +26,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sportify.R
-import com.example.sportify.presentation.ui.theme.SportifyTheme
-import com.example.sportify.presentation.ui.theme.azertMonoFontFamily
-import com.example.sportify.presentation.ui.theme.bebasNueueFontFamily
-import com.example.sportify.presentation.ui.theme.buttonShape
-import com.example.sportify.presentation.ui.theme.manropeFontFamily
+import com.example.sportify.sportify_app.presentation.theme.ui.SportifyTheme
+import com.example.sportify.sportify_app.presentation.theme.ui.azertMonoFontFamily
+import com.example.sportify.sportify_app.presentation.theme.ui.bebasNueueFontFamily
+import com.example.sportify.sportify_app.presentation.theme.ui.buttonShape
+import com.example.sportify.sportify_app.presentation.theme.ui.manropeFontFamily
 
 @Composable
 fun SignUpScreen() {
@@ -72,8 +72,6 @@ fun SignUpScreen() {
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text(
-                    text = stringResource(R.string.create_id),
-                    fontFamily = bebasNueueFontFamily,
                     fontWeight = FontWeight.Bold,
                     fontSize = 28.sp,
                     color = Color(0xFFFFFFFF)
