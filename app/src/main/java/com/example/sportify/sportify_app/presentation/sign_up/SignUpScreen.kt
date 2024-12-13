@@ -1,4 +1,4 @@
-package com.example.sportify.presentation.sign_up
+package com.example.sportify.sportify_app.presentation.sign_up
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
