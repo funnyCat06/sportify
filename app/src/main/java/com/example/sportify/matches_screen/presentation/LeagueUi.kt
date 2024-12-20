@@ -1,4 +1,4 @@
-package com.example.sportify.sportify_app.presentation.matches_screen
+package com.example.sportify.matches_screen.presentation
 
 import androidx.annotation.DrawableRes
 import com.example.sportify.R

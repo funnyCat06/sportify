@@ -1,4 +1,4 @@
-package com.example.sportify.sportify_app.presentation.theme.ui
+package com.example.sportify.core.presentation.theme.ui
 
 import androidx.compose.ui.graphics.Color
 

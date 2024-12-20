@@ -1,4 +1,4 @@
-package com.example.sportify.sportify_app.presentation.matches_screen.compponents
+package com.example.sportify.matches_screen.presentation.compponents
 
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.sportify.sportify_app.presentation.theme.ui.SportifyTheme
+import com.example.sportify.core.presentation.theme.ui.SportifyTheme
 
 @Composable
 fun MatchesTabRow(

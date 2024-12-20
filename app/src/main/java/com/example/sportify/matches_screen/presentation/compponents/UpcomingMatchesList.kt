@@ -1,4 +1,4 @@
-package com.example.sportify.sportify_app.presentation.matches_screen.compponents
+package com.example.sportify.matches_screen.presentation.compponents
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.sportify.sportify_app.presentation.matches_screen.MatchUi
+import com.example.sportify.matches_screen.presentation.MatchUi
 
 @Composable
 fun UpcomingMatchesList(

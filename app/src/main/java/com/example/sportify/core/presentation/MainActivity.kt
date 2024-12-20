@@ -1,12 +1,12 @@
-package com.example.sportify.sportify_app.presentation
+package com.example.sportify.core.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.sportify.sportify_app.presentation.theme.ui.SportifyTheme
-import com.example.sportify.sportify_app.presentation.matches_screen.MatchesScreen
-import com.example.sportify.sportify_app.presentation.matches_screen.leagueUiList
+import com.example.sportify.core.presentation.theme.ui.SportifyTheme
+import com.example.sportify.matches_screen.presentation.MatchesScreen
+import com.example.sportify.matches_screen.presentation.leagueUiList
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

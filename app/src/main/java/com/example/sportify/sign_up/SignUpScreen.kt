@@ -1,4 +1,4 @@
-package com.example.sportify.sportify_app.presentation.sign_up
+package com.example.sportify.sign_up
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -26,11 +26,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sportify.R
-import com.example.sportify.sportify_app.presentation.theme.ui.SportifyTheme
-import com.example.sportify.sportify_app.presentation.theme.ui.azertMonoFontFamily
-import com.example.sportify.sportify_app.presentation.theme.ui.bebasNueueFontFamily
-import com.example.sportify.sportify_app.presentation.theme.ui.buttonShape
-import com.example.sportify.sportify_app.presentation.theme.ui.manropeFontFamily
+import com.example.sportify.core.presentation.theme.ui.SportifyTheme
+import com.example.sportify.core.presentation.theme.ui.azertMonoFontFamily
+import com.example.sportify.core.presentation.theme.ui.bebasNueueFontFamily
+import com.example.sportify.core.presentation.theme.ui.buttonShape
+import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
 
 @Composable
 fun SignUpScreen() {

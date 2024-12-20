@@ -1,4 +1,4 @@
-package com.example.sportify.sportify_app.presentation.matches_screen
+package com.example.sportify.matches_screen.presentation
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -27,14 +27,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.sportify.sportify_app.presentation.theme.ui.SportifyTheme
-import com.example.sportify.sportify_app.presentation.theme.ui.bebasNueueFontFamily
-import com.example.sportify.sportify_app.presentation.theme.ui.chipShape
-import com.example.sportify.sportify_app.presentation.theme.ui.manropeFontFamily
-import com.example.sportify.sportify_app.presentation.matches_screen.compponents.LeagueListItem
-import com.example.sportify.sportify_app.presentation.matches_screen.compponents.MatchesTabRow
-import com.example.sportify.sportify_app.presentation.matches_screen.compponents.PastMatchesList
-import com.example.sportify.sportify_app.presentation.matches_screen.compponents.UpcomingMatchesList
+import com.example.sportify.core.presentation.theme.ui.SportifyTheme
+import com.example.sportify.core.presentation.theme.ui.bebasNueueFontFamily
+import com.example.sportify.core.presentation.theme.ui.chipShape
+import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
+import com.example.sportify.matches_screen.presentation.compponents.LeagueListItem
+import com.example.sportify.matches_screen.presentation.compponents.MatchesTabRow
+import com.example.sportify.matches_screen.presentation.compponents.PastMatchesList
+import com.example.sportify.matches_screen.presentation.compponents.UpcomingMatchesList
 
 
 @Composable

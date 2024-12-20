@@ -1,4 +1,4 @@
-package com.example.sportify.sportify_app.presentation.matches_screen.compponents
+package com.example.sportify.matches_screen.presentation.compponents
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.sportify.sportify_app.presentation.theme.ui.buttonShape
+import com.example.sportify.core.presentation.theme.ui.buttonShape
 
 @Composable
 fun SportDropDown(

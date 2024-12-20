@@ -1,4 +1,4 @@
-package com.example.sportify.sportify_app.presentation.matches_screen.compponents
+package com.example.sportify.matches_screen.presentation.compponents
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -18,9 +18,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.sportify.R
-import com.example.sportify.sportify_app.presentation.theme.ui.SportifyTheme
-import com.example.sportify.sportify_app.presentation.theme.ui.manropeFontFamily
-import com.example.sportify.sportify_app.presentation.matches_screen.LeagueUi
+import com.example.sportify.core.presentation.theme.ui.SportifyTheme
+import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
+import com.example.sportify.matches_screen.presentation.LeagueUi
 
 @Composable
 fun LeagueListItem(
