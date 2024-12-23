@@ -5,13 +5,13 @@ import com.example.sportify.R
 
 data class MatchUi(
     val league: LeagueUi,
-    val homeTeam: Team,
-    val awayTeam: Team,
+    val homeTeam: TeamUi,
+    val awayTeam: TeamUi,
     val time: String,
     val stage: String,
 )
 
-data class Team(
+data class TeamUi(
     val name: String,
     val shortName: String,
     val score: Int = 0,
@@ -23,13 +23,13 @@ val matchUiPreviewItem = MatchUi(
         name = "Premier League",
         imageRes = R.drawable.premier_league
     ),
-    homeTeam = Team(
+    homeTeam = TeamUi(
         name = "Arsenal",
         shortName = "ARSENAL",
         score = 2,
         logo = R.drawable.arsenal,
     ),
-    awayTeam = Team(
+    awayTeam = TeamUi(
         name = "Manchester United",
         shortName = "MAN UTD",
         score = 0,
