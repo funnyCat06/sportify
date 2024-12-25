@@ -1,4 +1,4 @@
-package com.example.sportify.matches_screen.presentation.compponents
+package com.example.sportify.matches_screen.presentation.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image

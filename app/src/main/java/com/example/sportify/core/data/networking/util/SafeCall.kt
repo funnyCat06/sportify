@@ -8,7 +8,9 @@ import kotlinx.coroutines.ensureActive
 import kotlinx.serialization.SerializationException
 import kotlin.coroutines.coroutineContext
 
-suspend inline fun <reified T> safeCall(execute: () -> HttpResponse): Result<T, NetworkError> {
+suspend inline fun <reified T> safeCall(
+    execute: () -> HttpResponse
+): Result<T, NetworkError> {
     val response = try {
         execute()
     } catch (e: UnresolvedAddressException) {

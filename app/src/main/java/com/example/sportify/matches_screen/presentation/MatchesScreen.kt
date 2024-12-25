@@ -31,10 +31,10 @@ import com.example.sportify.core.presentation.theme.ui.SportifyTheme
 import com.example.sportify.core.presentation.theme.ui.bebasNueueFontFamily
 import com.example.sportify.core.presentation.theme.ui.chipShape
 import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
-import com.example.sportify.matches_screen.presentation.compponents.LeagueListItem
-import com.example.sportify.matches_screen.presentation.compponents.MatchesTabRow
-import com.example.sportify.matches_screen.presentation.compponents.PastMatchesList
-import com.example.sportify.matches_screen.presentation.compponents.UpcomingMatchesList
+import com.example.sportify.matches_screen.presentation.components.LeagueListItem
+import com.example.sportify.matches_screen.presentation.components.MatchesTabRow
+import com.example.sportify.matches_screen.presentation.components.PastMatchesList
+import com.example.sportify.matches_screen.presentation.components.UpcomingMatchesList
 
 
 @Composable

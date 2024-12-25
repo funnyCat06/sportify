@@ -1,4 +1,4 @@
-package com.example.sportify.matches_screen.presentation.compponents
+package com.example.sportify.matches_screen.presentation.components
 
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
