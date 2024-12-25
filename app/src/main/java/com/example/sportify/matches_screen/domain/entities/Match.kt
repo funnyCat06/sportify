@@ -1,5 +1,8 @@
 package com.example.sportify.matches_screen.domain.entities
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Match(
     val area: Area,
     val attendance: Int,
@@ -7,7 +10,7 @@ data class Match(
     val bookings: List<Booking>,
     val competition: Competition1,
     val goals: List<Goal>,
-    val group: Any,
+    val group: String,
     val homeTeam: Team,
     val id: Int,
     val injuryTime: Int,
@@ -15,7 +18,7 @@ data class Match(
     val matchday: Int,
     val minute: Int,
     val odds: Odds,
-    val penalties: List<Any?>,
+    val penalties: List<Penalty>,
     val referees: List<Referee>,
     val score: ScoreX,
     val season: Season,

@@ -1,5 +1,8 @@
 package com.example.sportify.matches_screen.domain.entities
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Statistics(
     val ball_possession: Int,
     val corner_kicks: Int,
