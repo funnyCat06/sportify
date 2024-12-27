@@ -20,12 +20,12 @@ import androidx.compose.ui.unit.sp
 import com.example.sportify.R
 import com.example.sportify.core.presentation.theme.ui.SportifyTheme
 import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
-import com.example.sportify.match_list_screen.presentation.LeagueUi
+import com.example.sportify.match_list_screen.presentation.CompetitionUi
 
 @Composable
 fun LeagueListItem(
     modifier: Modifier = Modifier,
-    leagueUi: LeagueUi
+    competitionUi: CompetitionUi
 ) {
     Column(
         modifier = modifier,
@@ -39,13 +39,13 @@ fun LeagueListItem(
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(leagueUi.imageRes),
+                painter = painterResource(competitionUi.imageRes),
                 contentDescription = null,
                 modifier = Modifier.size(48.dp)
             )
         }
         Text(
-            text = leagueUi.name,
+            text = competitionUi.name,
             fontFamily = manropeFontFamily,
             fontWeight = FontWeight.SemiBold,
             fontSize = 12.sp,
@@ -58,7 +58,7 @@ fun LeagueListItem(
 private fun LeagueListItemPreview() {
     SportifyTheme {
         LeagueListItem(
-            leagueUi = LeagueUi("Premier League", R.drawable.premier_league)
+            competitionUi = CompetitionUi("Premier League", R.drawable.premier_league)
         )
     }
 }

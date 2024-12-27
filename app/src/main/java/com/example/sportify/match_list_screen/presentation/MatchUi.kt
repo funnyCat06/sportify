@@ -1,10 +1,8 @@
 package com.example.sportify.match_list_screen.presentation
 
-import androidx.annotation.DrawableRes
-import com.example.sportify.R
 
 data class MatchUi(
-    val league: LeagueUi,
+    val competitionUi: CompetitionUi,
     val homeTeam: TeamUi,
     val awayTeam: TeamUi,
     val time: String,
@@ -14,26 +12,24 @@ data class MatchUi(
 data class TeamUi(
     val name: String,
     val shortName: String,
-    val score: Int = 0,
-    @DrawableRes val logo: Int
+    val crest: String,
 )
 
 val matchUiPreviewItem = MatchUi(
-    league = LeagueUi(
+    competitionUi = CompetitionUi(
         name = "Premier League",
-        imageRes = R.drawable.premier_league
+        emblem = "https://crests.football-data.org/PL.png"
     ),
     homeTeam = TeamUi(
         name = "Arsenal",
         shortName = "ARSENAL",
-        score = 2,
-        logo = R.drawable.arsenal,
+        crest = "https://crests.football-data.org/66.png"
+
     ),
     awayTeam = TeamUi(
         name = "Manchester United",
         shortName = "MAN UTD",
-        score = 0,
-        logo = R.drawable.manchester_united,
+        crest = "https://crests.football-data.org/66.png"
     ),
     time = "7pm",
     stage = "LEAGUE MATCH"

@@ -49,7 +49,7 @@ fun UpcomingMatchListItem(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Icon(
-                        painter = painterResource(matchUi.league.imageRes),
+                        painter = painterResource(matchUi.competitionUi.imageRes),
                         contentDescription = null,
                         modifier = Modifier.size(24.dp)
                     )
