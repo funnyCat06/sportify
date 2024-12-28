@@ -11,6 +11,7 @@ fun Match.toMatchUi(): MatchUi {
         homeTeam = this.homeTeam.toTeamUi(),
         awayTeam = this.awayTeam.toTeamUi(),
         time = this.utcDate,
+        score = this.score.fullTime,
         stage = this.stage
     )
 }

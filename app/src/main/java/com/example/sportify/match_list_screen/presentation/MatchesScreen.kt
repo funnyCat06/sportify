@@ -39,6 +39,7 @@ import com.example.sportify.match_list_screen.presentation.components.UpcomingMa
 
 @Composable
 fun MatchesScreen(
+    uiState: MatchesListState = MatchesListState(),
     competitionUiItems: List<CompetitionUi> = competitionUiLists
 ) {
     Column(
@@ -102,7 +103,7 @@ fun MatchesScreen(
         // Animation might be tricky, though
         when (selectedTabIndex) {
             0 -> {
-                UpcomingMatchesList(matches = matchUiPreviewList)
+                UpcomingMatchesList(matches = uiState.matches)
             }
             1 -> {
                 PastMatchesList(matches = matchUiPreviewList)

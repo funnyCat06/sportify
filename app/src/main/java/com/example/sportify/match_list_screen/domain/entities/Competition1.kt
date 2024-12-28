@@ -14,7 +14,7 @@ data class Competition1(
     fun toCompetitionUi(): CompetitionUi {
         return CompetitionUi(
             name = this.name,
-            imageRes = this.emblem
+            emblem = this.emblem
         )
 
     }

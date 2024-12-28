@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.sportify.core.data.mappers.toMatchUi
 import com.example.sportify.core.domain.onError
 import com.example.sportify.core.domain.onSuccess
-import com.example.sportify.match_list_screen.domain.MatchRemoteDataSource
+import com.example.sportify.match_list_screen.domain.MatchDataSource
 import com.example.sportify.match_list_screen.domain.entities.Match
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MatchViewModel(
-    private val matchDataSource: MatchRemoteDataSource
+    private val matchDataSource: MatchDataSource
 ) : ViewModel() {
     private val _state = MutableStateFlow(MatchesListState())
     val state = _state

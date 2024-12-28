@@ -38,11 +38,11 @@ fun LeagueListItem(
                 .padding(32.dp),
             contentAlignment = Alignment.Center
         ) {
-            Image(
-                painter = painterResource(competitionUi.imageRes),
-                contentDescription = null,
-                modifier = Modifier.size(48.dp)
-            )
+//            Image(
+//                painter = competitionUi.emblem,
+//                contentDescription = null,
+//                modifier = Modifier.size(48.dp)
+//            )
         }
         Text(
             text = competitionUi.name,
@@ -53,12 +53,12 @@ fun LeagueListItem(
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-private fun LeagueListItemPreview() {
-    SportifyTheme {
-        LeagueListItem(
-            competitionUi = CompetitionUi("Premier League", R.drawable.premier_league)
-        )
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//private fun LeagueListItemPreview() {
+//    SportifyTheme {
+//        LeagueListItem(
+//            competitionUi = CompetitionUi("Premier League", R.drawable.premier_league)
+//        )
+//    }
+//}

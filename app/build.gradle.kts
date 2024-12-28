@@ -69,6 +69,9 @@ dependencies {
     implementation(libs.koin.androidx.compose.navigation)
     implementation(libs.androidx.ui.text.google.fonts)
     implementation(libs.androidx.graphics.shapes)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
 
 
     testImplementation(libs.junit)

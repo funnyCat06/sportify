@@ -25,10 +25,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
 import com.example.sportify.R
+import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
 import com.example.sportify.match_list_screen.presentation.MatchUi
 import com.example.sportify.match_list_screen.presentation.matchUiPreviewItem
-import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
 
 @Composable
 fun PastMatchesListItem(
@@ -59,13 +60,14 @@ fun PastMatchesListItem(
                         fontSize = 14.sp
                     )
                     Spacer(modifier = Modifier.width(4.dp))
-                    Icon(
-                        painter = painterResource(match.homeTeam.logo),
+                    AsyncImage(
+                        model = match.homeTeam.crest,
+                        placeholder = painterResource(R.drawable.arsenal),
                         contentDescription = null,
                         modifier = Modifier.size(40.dp)
                     )
                     Text(
-                        text = "${match.homeTeam.score}",
+                        text = "${match.score.home}",
                         fontFamily = manropeFontFamily,
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 24.sp,
@@ -77,14 +79,15 @@ fun PastMatchesListItem(
                     horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     Text(
-                        text = "${match.awayTeam.score}",
+                        text = "${match.score.away}",
                         fontFamily = manropeFontFamily,
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 24.sp,
                     )
                     Spacer(modifier = Modifier.width(4.dp))
-                    Icon(
-                        painter = painterResource(match.awayTeam.logo),
+                    AsyncImage(
+                        model = match.awayTeam.crest,
+                        placeholder = painterResource(R.drawable.arsenal),
                         contentDescription = null,
                         modifier = Modifier.size(40.dp)
                     )

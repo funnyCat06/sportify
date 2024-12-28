@@ -48,11 +48,11 @@ fun UpcomingMatchListItem(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Icon(
-                        painter = painterResource(matchUi.competitionUi.imageRes),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp)
-                    )
+//                    Icon(
+//                        painter = painterResource(matchUi.competitionUi.emblem),
+//                        contentDescription = null,
+//                        modifier = Modifier.size(24.dp)
+//                    )
                     Box(
                         modifier = Modifier
                             .background(Color(0xFFD6D5D5))
@@ -83,21 +83,21 @@ fun UpcomingMatchListItem(
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 14.sp
                         )
-                        Icon(
-                            painter = painterResource(matchUi.homeTeam.logo),
-                            contentDescription = null,
-                            modifier = Modifier.size(48.dp)
-                        )
+//                        Icon(
+//                            painter = painterResource(matchUi.homeTeam.crest),
+//                            contentDescription = null,
+//                            modifier = Modifier.size(48.dp)
+//                        )
                     }
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(24.dp)
                     ) {
-                        Icon(
-                            painter = painterResource(matchUi.awayTeam.logo),
-                            contentDescription = null,
-                            modifier = Modifier.size(48.dp)
-                        )
+//                        Icon(
+//                            painter = painterResource(matchUi.awayTeam.crest),
+//                            contentDescription = null,
+//                            modifier = Modifier.size(48.dp)
+//                        )
                         Text(
                             text = matchUi.awayTeam.shortName,
                             fontFamily = manropeFontFamily,

@@ -4,6 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Booking(
+
     val card: String,
     val minute: Int,
     val player: Player,

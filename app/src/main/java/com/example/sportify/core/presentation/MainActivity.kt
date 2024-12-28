@@ -4,9 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Modifier
 import com.example.sportify.core.presentation.theme.ui.SportifyTheme
-import com.example.sportify.match_list_screen.presentation.MatchesScreen
-import com.example.sportify.match_list_screen.presentation.competitionUiLists
+import com.example.sportify.match_list_screen.presentation.SportifyApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,8 +15,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SportifyTheme {
-                MatchesScreen(
-                    competitionUiItems = competitionUiLists
+                SportifyApp(
+                    modifier = Modifier.fillMaxSize()
                 )
             }
         }
