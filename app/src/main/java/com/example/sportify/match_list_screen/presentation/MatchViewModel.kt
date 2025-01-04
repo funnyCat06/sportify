@@ -28,7 +28,6 @@ class MatchViewModel(
         )
 
     private fun loadMatches() {
-        // update isLoading property to true
         viewModelScope.launch {
             _state.update {
                 it.copy(isLoading = true)
@@ -44,8 +43,8 @@ class MatchViewModel(
                         )
                     }
                 }
-                .onError {
-                    Log.d("loadMatches", "Something went wrong")
+                .onError { networkError ->
+                    Log.d("loadMatches", networkError.name)
                 }
 
         }

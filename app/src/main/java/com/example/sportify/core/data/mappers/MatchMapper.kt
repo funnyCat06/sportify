@@ -1,7 +1,9 @@
 package com.example.sportify.core.data.mappers
 
+import com.example.sportify.match_list_screen.domain.entities.Competition
 import com.example.sportify.match_list_screen.domain.entities.Match
 import com.example.sportify.match_list_screen.domain.entities.Team
+import com.example.sportify.match_list_screen.presentation.CompetitionUi
 import com.example.sportify.match_list_screen.presentation.MatchUi
 import com.example.sportify.match_list_screen.presentation.TeamUi
 
@@ -16,11 +18,18 @@ fun Match.toMatchUi(): MatchUi {
     )
 }
 
+private fun Competition.toCompetitionUi(): CompetitionUi {
+    return CompetitionUi(
+        name = this.name,
+        emblem = this.emblem
+    )
+}
+
 fun Team.toTeamUi(): TeamUi {
     return TeamUi(
-        name = this.name,
-        shortName = this.shortName,
-        crest = this.crest
+        name = this.name.toString(),
+        shortName = this.shortName.toString(),
+        crest = this.crest.toString()
     )
 
 }
