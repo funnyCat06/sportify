@@ -18,7 +18,7 @@ data class Match(
     val matchday: Int,
     val minute: Int,
     val odds: Odds,
-    val penalties: List<Penalty?>,
+    val penalties: List<Penalty>,
     val referees: List<Referee>,
     val score: ScoreX,
     val season: Season,
@@ -39,17 +39,17 @@ data class Area(
 
 @Serializable
 data class Team(
-    val bench: List<Bench>?,
-    val coach: Coach?,
-    val crest: String?,
-    val formation: String?,
-    val id: Int?,
-    val leagueRank: Int?,
-    val lineup: List<Lineup>?,
-    val name: String?,
-    val shortName: String?,
-    val statistics: Statistics?,
-    val tla: String?
+    val bench: List<Bench>,
+    val coach: Coach,
+    val crest: String,
+    val formation: String,
+    val id: Int,
+    val leagueRank: Int,
+    val lineup: List<Lineup>,
+    val name: String,
+    val shortName: String,
+    val statistics: Statistics,
+    val tla: String
 )
 
 @Serializable
@@ -72,7 +72,7 @@ data class Competition(
 @Serializable
 data class Goal(
     val assist: Assist,
-    val injuryTime: Int?,
+    val injuryTime: Int,
     val minute: Int,
     val score: Score,
     val scorer: Scorer,
