@@ -7,26 +7,25 @@ data class Match(
     val area: Area,
     val attendance: Int?,
     val awayTeam: Team,
-    val bookings: List<Booking>,
+    val bookings: List<Booking>?,
     val competition: Competition,
-    val goals: List<Goal>,
+    val goals: List<Goal>?,
     val group: String?,
     val homeTeam: Team,
     val id: Int,
-    val injuryTime: Int,
+    val injuryTime: Int?,
     val lastUpdated: String,
     val matchday: Int,
-    val minute: Int,
-    val odds: Odds,
-    val penalties: List<Penalty>,
+    val minute: Int?,
+    val penalties: List<Penalty>?,
     val referees: List<Referee>,
     val score: ScoreX,
     val season: Season,
-    val stage: String,
+    val stage: String?,
     val status: String,
-    val substitutions: List<Substitution>,
+    val substitutions: List<Substitution>?,
     val utcDate: String,
-    val venue: String
+    val venue: String?
 )
 
 @Serializable
@@ -39,16 +38,10 @@ data class Area(
 
 @Serializable
 data class Team(
-    val bench: List<Bench>,
-    val coach: Coach,
     val crest: String,
-    val formation: String,
     val id: Int,
-    val leagueRank: Int,
-    val lineup: List<Lineup>,
     val name: String,
     val shortName: String,
-    val statistics: Statistics,
     val tla: String
 )
 
@@ -81,13 +74,6 @@ data class Goal(
 )
 
 @Serializable
-data class Odds(
-    val awayWin: Double,
-    val draw: Double,
-    val homeWin: Double
-)
-
-@Serializable
 data class Referee(
     val id: Int,
     val name: String,
@@ -98,9 +84,9 @@ data class Referee(
 @Serializable
 data class ScoreX(
     val duration: String,
-    val fullTime: Score,
-    val halfTime: Score,
-    val winner: String
+    val fullTime: Score?,
+    val halfTime: Score?,
+    val winner: String?
 )
 
 @Serializable
@@ -174,8 +160,8 @@ data class Assist(
 
 @Serializable
 data class Score(
-    val away: Int,
-    val home: Int
+    val away: Int?,
+    val home: Int?
 )
 
 @Serializable
