@@ -1,4 +1,4 @@
-package com.example.domain.presentation
+package com.example.sportify.core.presentation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

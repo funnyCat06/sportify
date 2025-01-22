@@ -8,27 +8,24 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.sportify.match_list_screen.presentation.MatchUi
-import com.example.sportify.match_list_screen.presentation.matchUiPreviewItem
 import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
+import com.example.sportify.match_list_screen.presentation.UpcomingMatchUi
+import com.example.sportify.match_list_screen.presentation.upcomingMatchUiPreviewItem
 
 @Composable
 fun UpcomingMatchListItem(
     modifier: Modifier = Modifier,
-    matchUi: MatchUi = matchUiPreviewItem
+    upcomingMatchUi: UpcomingMatchUi = upcomingMatchUiPreviewItem
 ) {
     Surface(
         modifier = modifier,
@@ -60,7 +57,7 @@ fun UpcomingMatchListItem(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = matchUi.time,
+                            text = upcomingMatchUi.time,
                             fontFamily = manropeFontFamily,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 12.sp,
@@ -78,7 +75,7 @@ fun UpcomingMatchListItem(
                         horizontalArrangement = Arrangement.spacedBy(24.dp)
                     ) {
                         Text(
-                            text = matchUi.homeTeam.shortName,
+                            text = upcomingMatchUi.homeTeam.shortName,
                             fontFamily = manropeFontFamily,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 14.sp
@@ -99,7 +96,7 @@ fun UpcomingMatchListItem(
 //                            modifier = Modifier.size(48.dp)
 //                        )
                         Text(
-                            text = matchUi.awayTeam.shortName,
+                            text = upcomingMatchUi.awayTeam.shortName,
                             fontFamily = manropeFontFamily,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 14.sp
@@ -114,7 +111,7 @@ fun UpcomingMatchListItem(
                     .padding(horizontal = 16.dp, vertical = 8.dp),
             ) {
                 Text(
-                    text = matchUi.stage,
+                    text = upcomingMatchUi.stage,
                     fontFamily = manropeFontFamily,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 14.sp,

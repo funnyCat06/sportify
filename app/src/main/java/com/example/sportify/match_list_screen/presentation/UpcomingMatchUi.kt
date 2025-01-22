@@ -1,15 +1,13 @@
 package com.example.sportify.match_list_screen.presentation
 
-import com.example.sportify.match_list_screen.domain.entities.Score
 
-
-data class MatchUi(
+data class UpcomingMatchUi(
     val competitionUi: CompetitionUi,
     val homeTeam: TeamUi,
     val awayTeam: TeamUi,
     val time: String,
-    val score: Score,
-    val stage: String, )
+    val stage: String,
+)
 
 data class TeamUi(
     val name: String,
@@ -17,7 +15,7 @@ data class TeamUi(
     val crest: String,
 )
 
-val matchUiPreviewItem = MatchUi(
+val upcomingMatchUiPreviewItem = UpcomingMatchUi(
     competitionUi = CompetitionUi(
         name = "Premier League",
         emblem = "https://crests.football-data.org/PL.png"
@@ -34,9 +32,13 @@ val matchUiPreviewItem = MatchUi(
         crest = "https://crests.football-data.org/66.png"
     ),
     time = "7pm",
-    score = Score(3, 2),
     stage = "LEAGUE MATCH"
 )
 
 val matchUiPreviewList =
-    listOf(matchUiPreviewItem, matchUiPreviewItem, matchUiPreviewItem, matchUiPreviewItem)
+    listOf(
+        upcomingMatchUiPreviewItem,
+        upcomingMatchUiPreviewItem,
+        upcomingMatchUiPreviewItem,
+        upcomingMatchUiPreviewItem
+    )

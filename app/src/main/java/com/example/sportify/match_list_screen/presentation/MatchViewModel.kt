@@ -7,7 +7,7 @@ import com.example.sportify.core.data.mappers.toMatchUi
 import com.example.sportify.core.domain.onError
 import com.example.sportify.core.domain.onSuccess
 import com.example.sportify.match_list_screen.domain.MatchDataSource
-import com.example.sportify.match_list_screen.domain.entities.Match
+import com.example.sportify.match_list_screen.domain.entities.UpcomingMatch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
@@ -37,8 +37,8 @@ class MatchViewModel(
                 .onSuccess { matches ->
                     _state.update {
                         it.copy(
-                            matches = matches.map { match: Match ->
-                                match.toMatchUi()
+                            matches = matches.map { upcomingMatch: UpcomingMatch ->
+                                upcomingMatch.toMatchUi()
                             }
                         )
                     }
