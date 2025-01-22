@@ -13,7 +13,7 @@ fun UpcomingMatch.toUpcomingMatchUi(): UpcomingMatchUi {
         homeTeam = this.homeTeam.toTeamUi(),
         awayTeam = this.awayTeam.toTeamUi(),
         time = this.utcDate,
-        stage = this.stage.toString(),
+        stage = this.stage ?: "no stage",
         referees = this.referees,
         id = this.id,
         group = this.group ?: "no group",
