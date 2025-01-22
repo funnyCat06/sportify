@@ -3,7 +3,7 @@ package com.example.sportify.match_list_screen.presentation
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.sportify.core.data.mappers.toMatchUi
+import com.example.sportify.match_list_screen.domain.mappers.toUpcomingMatchUi
 import com.example.sportify.core.domain.onError
 import com.example.sportify.core.domain.onSuccess
 import com.example.sportify.match_list_screen.domain.MatchDataSource
@@ -38,7 +38,7 @@ class MatchViewModel(
                     _state.update {
                         it.copy(
                             matches = matches.map { upcomingMatch: UpcomingMatch ->
-                                upcomingMatch.toMatchUi()
+                                upcomingMatch.toUpcomingMatchUi()
                             }
                         )
                     }

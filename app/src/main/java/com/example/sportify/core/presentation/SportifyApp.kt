@@ -8,19 +8,15 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.sportify.match_list_screen.presentation.MatchViewModel
+import com.example.sportify.match_list_screen.presentation.MatchesScreen
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun SportifyApp(
     viewModel: MatchViewModel = koinViewModel()
 ) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        val state = viewModel.state.collectAsState()
-        Text(
-            text = "${state.value.matches}"
-        )
-    }
+    val state = viewModel.state.collectAsState()
+    MatchesScreen(
+        uiState = state.value,
+    )
 }

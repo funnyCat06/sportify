@@ -99,7 +99,6 @@ fun MatchesScreen(
                 selectedTabIndex = index
             }
         )
-        // TODO: Add tabs in when statement
         // Animation might be tricky, though
         when (selectedTabIndex) {
             0 -> {
