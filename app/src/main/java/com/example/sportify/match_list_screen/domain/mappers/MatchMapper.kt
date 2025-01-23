@@ -12,7 +12,8 @@ fun UpcomingMatch.toUpcomingMatchUi(): UpcomingMatchUi {
         competitionUi = this.competition.toCompetitionUi(),
         homeTeam = this.homeTeam.toTeamUi(),
         awayTeam = this.awayTeam.toTeamUi(),
-        time = this.utcDate,
+        date = this.utcDate.substring(0..9),
+        time = this.utcDate.substring(11..15),
         stage = this.stage ?: "no stage",
         referees = this.referees,
         id = this.id,
@@ -21,12 +22,10 @@ fun UpcomingMatch.toUpcomingMatchUi(): UpcomingMatchUi {
         matchDay = this.matchday,
         season = this.season,
         status = this.status,
-        utcDate = this.utcDate,
     )
 }
 
 private fun Competition.toCompetitionUi(): CompetitionUi {
-
    return CompetitionUi(
         name = this.name,
         emblem = this.emblem
@@ -37,6 +36,7 @@ fun Team.toTeamUi(): TeamUi {
     return TeamUi(
         name = this.name,
         shortName = this.shortName,
+        tla = this.tla,
         crest = this.crest
     )
 }

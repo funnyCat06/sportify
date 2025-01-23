@@ -9,6 +9,7 @@ data class UpcomingMatchUi(
     val competitionUi: CompetitionUi,
     val homeTeam: TeamUi,
     val awayTeam: TeamUi,
+    val date: String,
     val time: String,
     val stage: String,
     val group: String,
@@ -17,12 +18,12 @@ data class UpcomingMatchUi(
     val referees: List<Referee>,
     val season: Season,
     val status: String,
-    val utcDate: String
 )
 
 data class TeamUi(
     val name: String,
     val shortName: String,
+    val tla: String,
     val crest: String,
 )
 
@@ -34,15 +35,16 @@ val upcomingMatchUiPreviewItem = UpcomingMatchUi(
     homeTeam = TeamUi(
         name = "Arsenal",
         shortName = "ARSENAL",
-        crest = "https://crests.football-data.org/66.png"
-
+        tla = "ARS",
+        crest = "https://crests.football-data.org/66.png",
     ),
     awayTeam = TeamUi(
         name = "Manchester United",
-        shortName = "MAN UTD",
+        shortName = "Man United",
+        tla = "MUN",
         crest = "https://crests.football-data.org/66.png"
+
     ),
-    time = "7pm",
     stage = "LEAGUE MATCH",
     referees = listOf(
         Referee(id = 0, name = "nigga", "Syrian", type = "IDK"),
@@ -56,7 +58,8 @@ val upcomingMatchUiPreviewItem = UpcomingMatchUi(
     matchDay = 14,
     season = Season(currentMatchday = 14, endDate = "", id = 0, startDate = ""),
     status = "",
-    utcDate = "",
+    date = "",
+    time = "",
 )
 
 val matchUiPreviewList =

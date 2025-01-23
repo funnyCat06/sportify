@@ -9,6 +9,7 @@ import com.example.sportify.match_list_screen.domain.MatchDataSource
 import com.example.sportify.match_list_screen.domain.entities.UpcomingMatch
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
+import io.ktor.client.request.parameter
 
 // TODO: Change time dateFrom and dateTo parameters in request (check logcat)
 
@@ -20,6 +21,8 @@ class MatchRemoteDataSource(private val httpClient: HttpClient) : MatchDataSourc
         return safeCall<MatchesDto> {
             httpClient.get(constructUrl("/matches")) {
                 headers.append("X-Auth-Token", API_KEY)
+                parameter("dateFrom", "2025-01-23")
+                parameter("dateTo", "2025-01-30")
             }
         }.map { dto ->
             dto.matches

@@ -33,6 +33,7 @@ android {
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
@@ -71,6 +72,7 @@ dependencies {
     implementation(libs.androidx.graphics.shapes)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
 
 
