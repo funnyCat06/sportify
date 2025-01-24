@@ -11,8 +11,6 @@ import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 
-// TODO: Change time dateFrom and dateTo parameters in request (check logcat)
-
 private const val API_KEY = "6d570e89c85f44c7813f84049a54c4d6"
 
 class MatchRemoteDataSource(private val httpClient: HttpClient) : MatchDataSource {

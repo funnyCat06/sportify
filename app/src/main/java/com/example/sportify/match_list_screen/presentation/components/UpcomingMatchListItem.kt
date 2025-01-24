@@ -27,7 +27,7 @@ import com.example.sportify.match_list_screen.presentation.upcomingMatchUiPrevie
 @Composable
 fun UpcomingMatchListItem(
     modifier: Modifier = Modifier,
-    upcomingMatchUi: UpcomingMatchUi = upcomingMatchUiPreviewItem
+    upcomingMatchUi: UpcomingMatchUi
 ) {
     Surface(
         modifier = modifier,
@@ -50,7 +50,7 @@ fun UpcomingMatchListItem(
                     AsyncImage(
                         model = upcomingMatchUi.competitionUi.emblem,
                         contentDescription = null,
-                        modifier = Modifier.size(36.dp)
+                        modifier = Modifier.size(30.dp)
                     )
                     Box(
                         modifier = Modifier
@@ -121,18 +121,5 @@ fun UpcomingMatchListItem(
                 )
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun UpcomingMatchListItemPreview() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        UpcomingMatchListItem()
     }
 }

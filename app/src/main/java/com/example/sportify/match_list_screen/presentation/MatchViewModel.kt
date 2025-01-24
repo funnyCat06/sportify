@@ -27,7 +27,7 @@ class MatchViewModel(
             initialValue = MatchesListState()
         )
 
-    fun loadMatches() {
+    private fun loadMatches() {
         viewModelScope.launch {
             _state.update {
                 it.copy(isLoading = true)

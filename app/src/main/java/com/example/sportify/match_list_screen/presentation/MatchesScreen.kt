@@ -33,7 +33,6 @@ import com.example.sportify.core.presentation.theme.ui.chipShape
 import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
 import com.example.sportify.match_list_screen.presentation.components.LeagueListItem
 import com.example.sportify.match_list_screen.presentation.components.MatchesTabRow
-import com.example.sportify.match_list_screen.presentation.components.PastMatchesList
 import com.example.sportify.match_list_screen.presentation.components.UpcomingMatchesList
 
 
@@ -105,7 +104,6 @@ fun MatchesScreen(
                 UpcomingMatchesList(matches = uiState.matches)
             }
             1 -> {
-                PastMatchesList(matches = matchUiPreviewList)
             }
             else -> {
                 Log.d("UpcomingMatchesScreen", "quit hacking me you son of a bitch" )
