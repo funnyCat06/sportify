@@ -35,10 +35,12 @@ class MatchViewModel(
             matchDataSource
                 .getAllMatches()
                 .onSuccess { matches ->
-                    _state.update {
-                        it.copy(
+                    _state.update { state ->
+                        state.copy(
                             matches = matches.map { upcomingMatch: UpcomingMatch ->
                                 upcomingMatch.toUpcomingMatchUi()
+                            }.groupBy {
+                                it.date
                             }
                         )
                     }
