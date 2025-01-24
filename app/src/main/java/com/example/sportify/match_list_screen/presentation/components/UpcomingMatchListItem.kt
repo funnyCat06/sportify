@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
 import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
 import com.example.sportify.match_list_screen.presentation.UpcomingMatchUi
 import com.example.sportify.match_list_screen.presentation.upcomingMatchUiPreviewItem
@@ -46,12 +47,11 @@ fun UpcomingMatchListItem(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Box(Modifier.size(24.dp))
-//                    Icon(
-//                        painter = painterResource(matchUi.competitionUi.emblem),
-//                        contentDescription = null,
-//                        modifier = Modifier.size(24.dp)
-//                    )
+                    AsyncImage(
+                        model = upcomingMatchUi.competitionUi.emblem,
+                        contentDescription = null,
+                        modifier = Modifier.size(36.dp)
+                    )
                     Box(
                         modifier = Modifier
                             .background(Color(0xFFD6D5D5))
@@ -70,35 +70,35 @@ fun UpcomingMatchListItem(
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
+                    horizontalArrangement = Arrangement.SpaceAround
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(24.dp)
+                        horizontalArrangement = Arrangement.spacedBy(36.dp)
                     ) {
                         Text(
-                            text = upcomingMatchUi.homeTeam.shortName,
+                            text = upcomingMatchUi.homeTeam.tla,
                             fontFamily = manropeFontFamily,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 14.sp
                         )
-//                        Icon(
-//                            painter = painterResource(matchUi.homeTeam.crest),
-//                            contentDescription = null,
-//                            modifier = Modifier.size(48.dp)
-//                        )
+                        AsyncImage(
+                            model = upcomingMatchUi.homeTeam.crest,
+                            contentDescription = null,
+                            modifier = Modifier.size(48.dp)
+                        )
                     }
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(24.dp)
+                        horizontalArrangement = Arrangement.spacedBy(36.dp)
                     ) {
-//                        Icon(
-//                            painter = painterResource(matchUi.awayTeam.crest),
-//                            contentDescription = null,
-//                            modifier = Modifier.size(48.dp)
-//                        )
+                        AsyncImage(
+                            model = upcomingMatchUi.awayTeam.crest,
+                            contentDescription = null,
+                            modifier = Modifier.size(48.dp)
+                        )
                         Text(
-                            text = upcomingMatchUi.awayTeam.shortName,
+                            text = upcomingMatchUi.awayTeam.tla,
                             fontFamily = manropeFontFamily,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 14.sp
