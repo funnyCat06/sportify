@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
 import com.example.sportify.match_list_screen.presentation.UpcomingMatchUi
-import com.example.sportify.match_list_screen.presentation.upcomingMatchUiPreviewItem
 
 @Composable
 fun UpcomingMatchListItem(
