@@ -24,7 +24,6 @@ import com.example.sportify.match_list_screen.presentation.components.UpcomingMa
 @Composable
 fun MatchesScreen(
     uiState: MatchesListState = MatchesListState(),
-    competitionUiItems: List<CompetitionUi> = competitionUiLists
 ) {
     Column(
         modifier = Modifier
@@ -33,7 +32,7 @@ fun MatchesScreen(
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         TopBar()
-        LeagueRow(competitionUiItems = competitionUiItems)
+        LeagueRow(competitionUiItems = uiState.competitions)
         var selectedTabIndex by remember { mutableIntStateOf(0) }
 
         MatchesTabRow(
