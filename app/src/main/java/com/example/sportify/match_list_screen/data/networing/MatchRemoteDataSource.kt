@@ -10,23 +10,20 @@ import com.example.sportify.match_list_screen.domain.entities.Competition
 import com.example.sportify.match_list_screen.domain.entities.UpcomingMatch
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
-import io.ktor.client.request.parameter
 
 private const val API_KEY = "6d570e89c85f44c7813f84049a54c4d6"
 
 class MatchRemoteDataSource(private val httpClient: HttpClient) : MatchDataSource {
 
-//    override suspend fun getAllMatches(): Result<List<UpcomingMatch>, NetworkError> {
-//        return safeCall<MatchesDto> {
-//            httpClient.get(constructUrl("/matches")) {
-//                headers.append("X-Auth-Token", API_KEY)
-//                parameter("dateFrom", "2025-01-23")
-//                parameter("dateTo", "2025-01-30")
-//            }
-//        }.map { matchesDto ->
-//            matchesDto.matches
-//        }
-//    }
+    override suspend fun getMatchesByCompetitionId(id: Int): Result<List<UpcomingMatch>, NetworkError> {
+        return safeCall<MatchesDto> {
+            httpClient.get(constructUrl("/competitions/$id/matches")) {
+                headers.append("X-Auth-Token", API_KEY)
+            }
+        }.map { matchesDto ->
+            matchesDto.matches
+        }
+    }
 
     override suspend fun getAllCompetitions(): Result<List<Competition>, NetworkError> {
         return safeCall<CompetitionsDto> {

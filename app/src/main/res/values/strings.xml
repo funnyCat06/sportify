@@ -13,5 +13,7 @@
     <string name="error_serialization">Couldn\'t serialize or deserialize data.</string>
     <string name="error_client">Client Error</string>
     <string name="error_server">Server Error</string>
+    <string name="error_request_timeout">The request timed out.</string>
+    <string name="error_too_many_requests">Oops, it seems like your quota is exceeded.</string>
     <string name="error_unknown">Something went wrong. Please try again later.</string>
 </resources>

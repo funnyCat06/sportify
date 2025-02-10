@@ -7,7 +7,7 @@ import com.example.sportify.match_list_screen.domain.entities.UpcomingMatch
 
 interface MatchDataSource {
 
-//    suspend fun getAllMatches(): Result<List<UpcomingMatch>, NetworkError>
+    suspend fun getMatchesByCompetitionId(id: Int): Result<List<UpcomingMatch>, NetworkError>
 
     suspend fun getAllCompetitions(): Result<List<Competition>, NetworkError>
 }

@@ -5,5 +5,6 @@ import java.time.LocalDate
 data class MatchesListState(
     val competitions: List<CompetitionUi> = emptyList(),
     val matches: Map<LocalDate, List<UpcomingMatchUi>> = emptyMap(),
-    val isLoading: Boolean = false
+    val isLoading: Boolean = false,
+    val selectedCompetitionId: Int = 2021
 )

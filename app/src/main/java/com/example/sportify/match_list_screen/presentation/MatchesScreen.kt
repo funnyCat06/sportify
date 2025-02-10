@@ -32,7 +32,10 @@ fun MatchesScreen(
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         TopBar()
-        LeagueRow(competitionUiItems = uiState.competitions)
+        LeagueRow(
+            competitionUiItems = uiState.competitions,
+            modifier = Modifier.fillMaxWidth()
+        )
         var selectedTabIndex by remember { mutableIntStateOf(0) }
 
         MatchesTabRow(
