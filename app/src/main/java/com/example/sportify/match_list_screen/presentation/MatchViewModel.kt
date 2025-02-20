@@ -23,7 +23,6 @@ class MatchViewModel(
     val state = _state
         .onStart {
             loadCompetitions()
-            loadMatches()
         }
         .stateIn(
             scope = viewModelScope,
@@ -73,6 +72,7 @@ class MatchViewModel(
                             selectedCompetitionId = competitions.first().id
                         )
                     }
+                    loadMatches()
                 }
                 .onError { networkError ->
                     Log.d("loadMatches", networkError.name)
