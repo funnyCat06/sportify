@@ -44,7 +44,7 @@ class MatchViewModel(
                             matches = matches.map { upcomingMatch: UpcomingMatch ->
                                 upcomingMatch.toUpcomingMatchUi()
                             }.groupBy {
-                                it.date
+                                it.dateTime.toLocalDate()
                             }
                         )
                     }

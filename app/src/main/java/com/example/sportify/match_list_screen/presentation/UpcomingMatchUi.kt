@@ -2,7 +2,7 @@ package com.example.sportify.match_list_screen.presentation
 
 import com.example.sportify.match_list_screen.domain.entities.Referee
 import com.example.sportify.match_list_screen.domain.entities.Season
-import java.time.LocalDate
+import java.time.LocalDateTime
 
 
 data class UpcomingMatchUi(
@@ -10,8 +10,7 @@ data class UpcomingMatchUi(
     val competitionUi: CompetitionUi,
     val homeTeam: TeamUi,
     val awayTeam: TeamUi,
-    val date: LocalDate,
-    val time: String,
+    val dateTime: LocalDateTime,
     val stage: String,
     val group: String,
     val lastUpdated: String,
