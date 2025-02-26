@@ -15,13 +15,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.toLowerCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
+import com.example.sportify.match_list_screen.domain.mappers.to12
 import com.example.sportify.match_list_screen.presentation.UpcomingMatchUi
-import java.util.Locale
 
 @Composable
 fun UpcomingMatchListItem(
@@ -58,7 +57,7 @@ fun UpcomingMatchListItem(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = upcomingMatchUi.time,
+                            text = upcomingMatchUi.dateTime.hour.to12() ,
                             fontFamily = manropeFontFamily,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 12.sp,
@@ -112,7 +111,7 @@ fun UpcomingMatchListItem(
                     .padding(horizontal = 16.dp, vertical = 8.dp),
             ) {
                 Text(
-                    text = upcomingMatchUi.stage.lowercase(Locale.getDefault()),
+                    text = upcomingMatchUi.stage,
                     fontFamily = manropeFontFamily,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 14.sp,
