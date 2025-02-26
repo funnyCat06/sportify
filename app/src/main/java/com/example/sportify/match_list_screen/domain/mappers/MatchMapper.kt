@@ -3,15 +3,15 @@ package com.example.sportify.match_list_screen.domain.mappers
 import com.example.sportify.match_list_screen.domain.entities.Competition
 import com.example.sportify.match_list_screen.domain.entities.Competition1
 import com.example.sportify.match_list_screen.domain.entities.Team
-import com.example.sportify.match_list_screen.domain.entities.UpcomingMatch
+import com.example.sportify.match_list_screen.domain.entities.Match
 import com.example.sportify.match_list_screen.presentation.CompetitionUi
 import com.example.sportify.match_list_screen.presentation.TeamUi
-import com.example.sportify.match_list_screen.presentation.UpcomingMatchUi
+import com.example.sportify.match_list_screen.presentation.MatchUi
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-fun UpcomingMatch.toUpcomingMatchUi(): UpcomingMatchUi {
-    return UpcomingMatchUi(
+fun Match.toUpcomingMatchUi(): MatchUi {
+    return MatchUi(
         competitionUi = this.competition.toCompetitionUi(),
         homeTeam = this.homeTeam.toTeamUi(),
         awayTeam = this.awayTeam.toTeamUi(),
@@ -24,6 +24,7 @@ fun UpcomingMatch.toUpcomingMatchUi(): UpcomingMatchUi {
         matchDay = this.matchday,
         season = this.season,
         status = this.status,
+        score = this.score
     )
 }
 

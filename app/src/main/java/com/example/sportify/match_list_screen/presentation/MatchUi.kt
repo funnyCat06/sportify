@@ -1,11 +1,12 @@
 package com.example.sportify.match_list_screen.presentation
 
 import com.example.sportify.match_list_screen.domain.entities.Referee
+import com.example.sportify.match_list_screen.domain.entities.Score
 import com.example.sportify.match_list_screen.domain.entities.Season
 import java.time.LocalDateTime
 
 
-data class UpcomingMatchUi(
+data class MatchUi(
     val id: Int,
     val competitionUi: CompetitionUi,
     val homeTeam: TeamUi,
@@ -18,6 +19,7 @@ data class UpcomingMatchUi(
     val referees: List<Referee>,
     val season: Season,
     val status: String,
+    val score: Score?
 )
 
 data class TeamUi(

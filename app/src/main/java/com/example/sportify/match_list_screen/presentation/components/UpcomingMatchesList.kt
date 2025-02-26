@@ -14,14 +14,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.sportify.match_list_screen.presentation.UpcomingMatchUi
+import com.example.sportify.match_list_screen.presentation.MatchUi
 import java.time.LocalDate
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun UpcomingMatchesList(
     modifier: Modifier = Modifier,
-    matches: Map<LocalDate, List<UpcomingMatchUi>>
+    matches: Map<LocalDate, List<MatchUi>>
 ) {
     LazyColumn(
         modifier = modifier,
@@ -41,7 +41,7 @@ fun UpcomingMatchesList(
                 )
             }
             items(items = matches) { matchUi ->
-                UpcomingMatchListItem(upcomingMatchUi = matchUi)
+                UpcomingMatchListItem(matchUi = matchUi)
             }
         }
     }

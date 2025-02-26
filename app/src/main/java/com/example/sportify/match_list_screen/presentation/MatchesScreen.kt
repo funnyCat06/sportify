@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.example.sportify.core.presentation.theme.ui.SportifyTheme
 import com.example.sportify.match_list_screen.presentation.components.CompetitionRow
 import com.example.sportify.match_list_screen.presentation.components.MatchesTabRow
+import com.example.sportify.match_list_screen.presentation.components.PastMatchesList
 import com.example.sportify.match_list_screen.presentation.components.TopBar
 import com.example.sportify.match_list_screen.presentation.components.UpcomingMatchesList
 
@@ -54,7 +55,9 @@ fun MatchesScreen(
                 UpcomingMatchesList(matches = uiState.matches)
             }
 
-            1 -> {}
+            1 -> {
+                PastMatchesList(matches = uiState.matches)
+            }
             else -> {
                 Log.d("UpcomingMatchesScreen", "quit hacking me you son of a bitch" )
             }

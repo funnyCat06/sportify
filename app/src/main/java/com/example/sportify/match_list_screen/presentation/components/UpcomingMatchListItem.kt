@@ -20,12 +20,12 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
 import com.example.sportify.match_list_screen.domain.mappers.to12
-import com.example.sportify.match_list_screen.presentation.UpcomingMatchUi
+import com.example.sportify.match_list_screen.presentation.MatchUi
 
 @Composable
 fun UpcomingMatchListItem(
     modifier: Modifier = Modifier,
-    upcomingMatchUi: UpcomingMatchUi
+    matchUi: MatchUi
 ) {
     Surface(
         modifier = modifier,
@@ -46,7 +46,7 @@ fun UpcomingMatchListItem(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     AsyncImage(
-                        model = upcomingMatchUi.competitionUi.emblem,
+                        model = matchUi.competitionUi.emblem,
                         contentDescription = null,
                         modifier = Modifier.size(30.dp)
                     )
@@ -57,7 +57,7 @@ fun UpcomingMatchListItem(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = upcomingMatchUi.dateTime.hour.to12() ,
+                            text = matchUi.dateTime.hour.to12() ,
                             fontFamily = manropeFontFamily,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 12.sp,
@@ -75,13 +75,13 @@ fun UpcomingMatchListItem(
                         horizontalArrangement = Arrangement.spacedBy(36.dp)
                     ) {
                         Text(
-                            text = upcomingMatchUi.homeTeam.tla,
+                            text = matchUi.homeTeam.tla,
                             fontFamily = manropeFontFamily,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 14.sp
                         )
                         AsyncImage(
-                            model = upcomingMatchUi.homeTeam.crest,
+                            model = matchUi.homeTeam.crest,
                             contentDescription = null,
                             modifier = Modifier.size(48.dp)
                         )
@@ -91,12 +91,12 @@ fun UpcomingMatchListItem(
                         horizontalArrangement = Arrangement.spacedBy(36.dp)
                     ) {
                         AsyncImage(
-                            model = upcomingMatchUi.awayTeam.crest,
+                            model = matchUi.awayTeam.crest,
                             contentDescription = null,
                             modifier = Modifier.size(48.dp)
                         )
                         Text(
-                            text = upcomingMatchUi.awayTeam.tla,
+                            text = matchUi.awayTeam.tla,
                             fontFamily = manropeFontFamily,
                             fontWeight = FontWeight.SemiBold,
                             fontSize = 14.sp
@@ -111,7 +111,7 @@ fun UpcomingMatchListItem(
                     .padding(horizontal = 16.dp, vertical = 8.dp),
             ) {
                 Text(
-                    text = upcomingMatchUi.stage
+                    text = matchUi.stage
                         .replace(oldValue = "_", newValue = " ")
                         .lowercase(),
                     fontFamily = manropeFontFamily,

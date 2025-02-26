@@ -3,7 +3,7 @@ package com.example.sportify.match_list_screen.domain.entities
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class UpcomingMatch(
+data class Match(
     val id: Int,
     val area: Area,
     val awayTeam: Team,
@@ -17,6 +17,19 @@ data class UpcomingMatch(
     val stage: String?,
     val status: String,
     val utcDate: String,
+    val score: Score?
+)
+
+@Serializable
+data class Score (
+    val winner: String?,
+    val fullTime: FullTime
+)
+
+@Serializable
+data class FullTime(
+    val home: Int?,
+    val away: Int?
 )
 
 @Serializable
