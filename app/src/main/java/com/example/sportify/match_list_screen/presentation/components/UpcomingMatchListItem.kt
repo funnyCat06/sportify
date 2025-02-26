@@ -111,7 +111,9 @@ fun UpcomingMatchListItem(
                     .padding(horizontal = 16.dp, vertical = 8.dp),
             ) {
                 Text(
-                    text = upcomingMatchUi.stage,
+                    text = upcomingMatchUi.stage
+                        .replace(oldValue = "_", newValue = " ")
+                        .lowercase(),
                     fontFamily = manropeFontFamily,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 14.sp,

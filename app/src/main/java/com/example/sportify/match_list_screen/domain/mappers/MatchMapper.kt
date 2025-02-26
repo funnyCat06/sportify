@@ -43,7 +43,7 @@ fun Competition.toCompetitionUi(): CompetitionUi {
     )
 }
 
-fun Team.toTeamUi(): TeamUi {
+private fun Team.toTeamUi(): TeamUi {
     return TeamUi(
         name = this.name ?: "Unknown Team",
         shortName = this.shortName ?: "Unknown",
