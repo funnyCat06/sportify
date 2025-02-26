@@ -1,12 +1,6 @@
 package com.example.sportify.core.presentation
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.sportify.match_list_screen.presentation.MatchViewModel
 import com.example.sportify.match_list_screen.presentation.MatchesScreen
@@ -18,5 +12,6 @@ fun SportifyApp(
 ) {
     MatchesScreen(
         uiState = viewModel.state.collectAsStateWithLifecycle().value,
+        onCompetitionClick = viewModel::changeSelectedId,
     )
 }

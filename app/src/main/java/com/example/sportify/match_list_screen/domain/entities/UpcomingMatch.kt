@@ -4,12 +4,12 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UpcomingMatch(
+    val id: Int,
     val area: Area,
     val awayTeam: Team,
     val competition: Competition1,
     val group: String?,
     val homeTeam: Team,
-    val id: Int,
     val lastUpdated: String,
     val matchday: Int,
     val referees: List<Referee>,
@@ -28,11 +28,11 @@ data class Area(
 
 @Serializable
 data class Team(
-    val crest: String,
-    val id: Int,
-    val name: String,
-    val shortName: String,
-    val tla: String
+    val crest: String?,
+    val id: Int?,
+    val name: String?,
+    val shortName: String?,
+    val tla: String?
 )
 
 @Serializable
@@ -48,7 +48,7 @@ data class Competition1(
 data class Referee(
     val id: Int,
     val name: String,
-    val nationality: String,
+    val nationality: String?,
     val type: String
 )
 

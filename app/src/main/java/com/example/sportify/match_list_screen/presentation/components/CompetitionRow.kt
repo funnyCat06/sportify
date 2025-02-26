@@ -10,9 +10,10 @@ import androidx.compose.ui.unit.dp
 import com.example.sportify.match_list_screen.presentation.CompetitionUi
 
 @Composable
-fun LeagueRow(
+fun CompetitionRow(
     competitionUiItems: List<CompetitionUi>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onItemClick: (Int) -> Unit
 ) {
     LazyRow(
         modifier = modifier,
@@ -20,7 +21,7 @@ fun LeagueRow(
         horizontalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         items(items = competitionUiItems) { item ->
-            LeagueListItem(competitionUi = item)
+            CompetitionListItem(competitionUi = item, onItemClick = { onItemClick(item.id) })
         }
     }
 }

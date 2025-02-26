@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.sportify.core.presentation.theme.ui.SportifyTheme
-import com.example.sportify.match_list_screen.presentation.components.LeagueRow
+import com.example.sportify.match_list_screen.presentation.components.CompetitionRow
 import com.example.sportify.match_list_screen.presentation.components.MatchesTabRow
 import com.example.sportify.match_list_screen.presentation.components.TopBar
 import com.example.sportify.match_list_screen.presentation.components.UpcomingMatchesList
@@ -24,6 +24,7 @@ import com.example.sportify.match_list_screen.presentation.components.UpcomingMa
 @Composable
 fun MatchesScreen(
     uiState: MatchesListState = MatchesListState(),
+    onCompetitionClick: (Int) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -32,9 +33,10 @@ fun MatchesScreen(
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         TopBar()
-        LeagueRow(
+        CompetitionRow(
             competitionUiItems = uiState.competitions,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            onItemClick = onCompetitionClick
         )
         var selectedTabIndex by remember { mutableIntStateOf(0) }
 
@@ -65,6 +67,6 @@ fun MatchesScreen(
 @Composable
 private fun UpcomingMatchesScreenPreview() {
     SportifyTheme {
-        MatchesScreen()
+        MatchesScreen {}
     }
 }

@@ -30,13 +30,20 @@ class MatchViewModel(
             initialValue = MatchesListState()
         )
 
-    private fun loadMatches() {
+    fun changeSelectedId(id: Int) {
+        _state.update {
+            it.copy(selectedCompetitionId = id)
+        }
+        loadMatches(_state.value.selectedCompetitionId)
+    }
+
+    private fun loadMatches(id: Int) {
         viewModelScope.launch {
             _state.update {
                 it.copy(isLoading = true)
             }
             matchDataSource
-                .getMatchesByCompetitionId(_state.value.selectedCompetitionId)
+                .getMatchesByCompetitionId(id)
                 .onSuccess { matches ->
                     _state.update { state ->
                         state.copy(
@@ -72,7 +79,7 @@ class MatchViewModel(
                             selectedCompetitionId = competitions.first().id
                         )
                     }
-                    loadMatches()
+                    loadMatches(_state.value.selectedCompetitionId)
                 }
                 .onError { networkError ->
                     Log.d("loadMatches", networkError.name)

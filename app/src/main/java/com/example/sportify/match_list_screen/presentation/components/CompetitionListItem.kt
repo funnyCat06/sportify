@@ -2,6 +2,7 @@ package com.example.sportify.match_list_screen.presentation.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -22,12 +23,16 @@ import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
 import com.example.sportify.match_list_screen.presentation.CompetitionUi
 
 @Composable
-fun LeagueListItem(
+fun CompetitionListItem(
     modifier: Modifier = Modifier,
-    competitionUi: CompetitionUi
+    competitionUi: CompetitionUi,
+    onItemClick: () -> Unit
 ) {
     Column(
-        modifier = modifier.width(IntrinsicSize.Min),
+        modifier = modifier
+            .width(IntrinsicSize.Min)
+            .clickable(onClick = onItemClick)
+        ,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(

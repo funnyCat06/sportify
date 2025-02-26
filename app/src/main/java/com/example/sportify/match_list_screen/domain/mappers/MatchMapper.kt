@@ -30,7 +30,7 @@ fun UpcomingMatch.toUpcomingMatchUi(): UpcomingMatchUi {
 
 private fun Competition1.toCompetitionUi(): CompetitionUi {
    return CompetitionUi(
-       id = this.id,
+        id = this.id,
         name = this.name,
         emblem = this.emblem
     )
@@ -46,10 +46,10 @@ fun Competition.toCompetitionUi(): CompetitionUi {
 
 fun Team.toTeamUi(): TeamUi {
     return TeamUi(
-        name = this.name,
-        shortName = this.shortName,
-        tla = this.tla,
-        crest = this.crest
+        name = this.name ?: "Unknown Team",
+        shortName = this.shortName ?: "Unknown",
+        tla = this.tla ?: "UNK",
+        crest = this.crest ?: ""
     )
 }
 
