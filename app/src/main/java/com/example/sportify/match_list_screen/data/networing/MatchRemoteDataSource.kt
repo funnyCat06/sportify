@@ -17,12 +17,12 @@ private const val API_KEY = "6d570e89c85f44c7813f84049a54c4d6"
 
 class MatchRemoteDataSource(private val httpClient: HttpClient) : MatchDataSource {
 
-    override suspend fun getMatchesByCompetitionId(id: Int): Result<List<Match>, NetworkError> {
+    override suspend fun getMatchesByCompetitionId(id: Int, dateFrom: LocalDate, dateTo: LocalDate): Result<List<Match>, NetworkError> {
         return safeCall<MatchesDto> {
             httpClient.get(constructUrl("/competitions/$id/matches")) {
                 headers.append("X-Auth-Token", API_KEY)
-                parameter("dateFrom", LocalDate.now())
-                parameter("dateTo", LocalDate.now().plusWeeks(4))
+                parameter("dateFrom", dateFrom)
+                parameter("dateTo", dateTo)
             }
         }.map { matchesDto ->
             matchesDto.matches

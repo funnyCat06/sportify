@@ -19,7 +19,6 @@ import com.example.sportify.match_list_screen.presentation.components.TopBar
 import com.example.sportify.match_list_screen.presentation.components.UpcomingMatchesList
 import java.time.LocalDate
 
-
 @Composable
 fun MatchesScreen(
     uiState: MatchesListState = MatchesListState(),
