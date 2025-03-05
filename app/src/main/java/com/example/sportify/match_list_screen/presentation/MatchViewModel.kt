@@ -31,17 +31,11 @@ class MatchViewModel(
             initialValue = MatchesListState()
         )
 
-    fun onCompetitionClick(id: Int) {
+    fun changeSelectedId(id: Int) {
         _state.update {
             it.copy(selectedCompetitionId = id)
         }
         loadMatches(_state.value.selectedCompetitionId)
-    }
-
-    fun onMatchTabClick(id: Int) {
-        _state.update {
-            it.copy(selectedTabId = id)
-        }
     }
 
     private fun loadMatches(id: Int) {

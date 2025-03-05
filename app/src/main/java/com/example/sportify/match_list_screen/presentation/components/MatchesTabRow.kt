@@ -1,6 +1,5 @@
 package com.example.sportify.match_list_screen.presentation.components
 
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults
@@ -11,42 +10,37 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.sportify.core.presentation.theme.ui.SportifyTheme
-import java.time.LocalDate
-
-data class MatchTab(
-    val id: Int,
-    val name: String,
-    val dateFrom: LocalDate,
-    val dateTo: LocalDate
-)
 
 @Composable
 fun MatchesTabRow(
-    tabs: List<MatchTab>,
-    selectedTabId: Int,
     modifier: Modifier = Modifier,
-    onTabClick: (Int) -> Unit = { }
+    selectedTabIndex: Int = 0,
+    titles: List<String> = listOf("Upcoming", "Past Matches"),
+    onTabClick: (Int) -> Unit = {
+
+    }
 ) {
     TabRow(
-        selectedTabIndex = selectedTabId,
+        selectedTabIndex = selectedTabIndex,
         modifier = modifier,
         indicator = { tabPositions ->
-            if (selectedTabId < tabPositions.size) {
+            if (selectedTabIndex < tabPositions.size) {
                 TabRowDefaults.SecondaryIndicator(
-                    Modifier.tabIndicatorOffset(tabPositions[selectedTabId]),
+                    Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
                     color = Color(0xFFFF5050)
                 )
             }
         }
+
     ) {
-        tabs.forEach { tab ->
+        titles.forEachIndexed { index, title ->
             Tab(
-                selected = selectedTabId == tab.id,
-                onClick = { onTabClick(tab.id) },
+                selected = selectedTabIndex == index,
+                onClick = { onTabClick(index) },
                 text = {
                     Text(
-                        text = tab.name,
-                        color = if (selectedTabId == tab.id) {
+                        text = title,
+                        color = if (selectedTabIndex == index) {
                             Color(0xFF150000)
                         } else {
                             Color(0xFF5B5757)
@@ -62,24 +56,6 @@ fun MatchesTabRow(
 @Composable
 private fun MatchesTabRowPreview() {
     SportifyTheme {
-        MatchesTabRow(
-            tabs = listOf(
-                MatchTab(
-                    0,
-                    "Upcoming",
-                    dateFrom = LocalDate.now(),
-                    dateTo = LocalDate.now().plusMonths(1)
-                ),
-                MatchTab(
-                    1,
-                    "Past Matches",
-                    dateFrom = LocalDate.now().minusDays(1),
-                    dateTo = LocalDate.now().minusMonths(1)
-                )
-            ),
-            modifier = Modifier.fillMaxWidth(),
-            selectedTabId = 1,
-            onTabClick = {}
-        )
+        MatchesTabRow()
     }
 }
