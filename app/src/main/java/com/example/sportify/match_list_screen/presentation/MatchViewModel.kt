@@ -30,7 +30,7 @@ class MatchViewModel(
             initialValue = MatchesListState()
         )
 
-    fun changeSelectedId(competitionId: Int) {
+    fun changeSelectedCompetitionId(competitionId: Int) {
         _state.update {
             it.copy(selectedCompetitionId = competitionId)
         }
