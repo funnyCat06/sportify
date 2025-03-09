@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.time.LocalDate
 
 class MatchViewModel(
     private val matchDataSource: MatchDataSource
@@ -31,20 +30,27 @@ class MatchViewModel(
             initialValue = MatchesListState()
         )
 
-    fun changeSelectedId(id: Int) {
+    fun changeSelectedId(competitionId: Int) {
         _state.update {
-            it.copy(selectedCompetitionId = id)
+            it.copy(selectedCompetitionId = competitionId)
         }
-        loadMatches(_state.value.selectedCompetitionId)
+        loadMatches()
     }
 
-    private fun loadMatches(id: Int) {
+    fun changeSelectedTab(tab: MatchTab) {
+        _state.update {
+            it.copy(selectedTab = tab)
+        }
+        loadMatches()
+    }
+
+    private fun loadMatches() {
         viewModelScope.launch {
             _state.update {
                 it.copy(isLoading = true)
             }
             matchDataSource
-                .getMatchesByCompetitionId(id, LocalDate.now(), LocalDate.now().plusMonths(1))
+                .getMatchesByCompetitionId(state.value.selectedCompetitionId, state.value.selectedTab.dateFrom, state.value.selectedTab.dateTo)
                 .onSuccess { matches ->
                     _state.update { state ->
                         state.copy(
@@ -80,7 +86,7 @@ class MatchViewModel(
                             selectedCompetitionId = competitions.first().id
                         )
                     }
-                    loadMatches(_state.value.selectedCompetitionId)
+                    loadMatches()
                 }
                 .onError { networkError ->
                     Log.d("loadMatches", networkError.name)

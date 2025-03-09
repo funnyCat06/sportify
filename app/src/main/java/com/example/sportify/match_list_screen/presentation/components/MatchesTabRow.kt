@@ -10,37 +10,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.sportify.core.presentation.theme.ui.SportifyTheme
+import com.example.sportify.match_list_screen.presentation.MatchTab
 
 @Composable
 fun MatchesTabRow(
     modifier: Modifier = Modifier,
-    selectedTabIndex: Int = 0,
-    titles: List<String> = listOf("Upcoming", "Past Matches"),
-    onTabClick: (Int) -> Unit = {
-
-    }
+    selectedTab: MatchTab = MatchTab.UPCOMING,
+    tabs: List<MatchTab> = MatchTab.entries,
+    onTabClick: (MatchTab) -> Unit = { }
 ) {
     TabRow(
-        selectedTabIndex = selectedTabIndex,
+        selectedTabIndex = selectedTab.ordinal,
         modifier = modifier,
-        indicator = { tabPositions ->
-            if (selectedTabIndex < tabPositions.size) {
-                TabRowDefaults.SecondaryIndicator(
-                    Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
-                    color = Color(0xFFFF5050)
-                )
-            }
-        }
-
+        indicator = {}
     ) {
-        titles.forEachIndexed { index, title ->
+        tabs.forEach { tab ->
             Tab(
-                selected = selectedTabIndex == index,
-                onClick = { onTabClick(index) },
+                selected = selectedTab == tab,
+                onClick = { onTabClick(tab) },
                 text = {
                     Text(
-                        text = title,
-                        color = if (selectedTabIndex == index) {
+                        text = tab.title,
+                        color = if (selectedTab == tab) {
                             Color(0xFF150000)
                         } else {
                             Color(0xFF5B5757)

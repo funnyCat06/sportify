@@ -17,7 +17,7 @@ suspend inline fun <reified T> responseToResult(response: HttpResponse): Result<
         }
         in 400..499 -> Result.Error(NetworkError.CLIENT_ERROR)
         in 500..599 -> Result.Error(NetworkError.SERVER_ERROR)
-        else -> Result.Error(NetworkError.UNKNWON_ERROR)
+        else -> Result.Error(NetworkError.UNKNOWN_ERROR)
 
     }
 }

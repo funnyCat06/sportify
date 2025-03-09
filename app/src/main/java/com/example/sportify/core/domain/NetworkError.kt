@@ -5,5 +5,5 @@ enum class NetworkError: Error {
     CLIENT_ERROR,
     SERVER_ERROR,
     SERIALIZATION_ERROR,
-    UNKNWON_ERROR
+    UNKNOWN_ERROR
 }

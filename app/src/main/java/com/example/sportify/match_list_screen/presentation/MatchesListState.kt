@@ -6,5 +6,6 @@ data class MatchesListState(
     val competitions: List<CompetitionUi> = emptyList(),
     val matches: Map<LocalDate, List<MatchUi>> = emptyMap(),
     val isLoading: Boolean = false,
-    val selectedCompetitionId: Int = 2021
+    val selectedCompetitionId: Int = 2021,
+    val selectedTab: MatchTab = MatchTab.UPCOMING
 )

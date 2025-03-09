@@ -1,16 +1,11 @@
 package com.example.sportify.match_list_screen.presentation
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -24,7 +19,8 @@ import com.example.sportify.match_list_screen.presentation.components.UpcomingMa
 @Composable
 fun MatchesScreen(
     uiState: MatchesListState = MatchesListState(),
-    onCompetitionClick: (Int) -> Unit
+    onCompetitionClick: (Int) -> Unit = { },
+    onTabClick: (MatchTab) -> Unit = { }
 ) {
     Column(
         modifier = Modifier
@@ -38,27 +34,22 @@ fun MatchesScreen(
             modifier = Modifier.fillMaxWidth(),
             onItemClick = onCompetitionClick
         )
-        var selectedTabIndex by remember { mutableIntStateOf(0) }
+
 
         MatchesTabRow(
             modifier = Modifier.fillMaxWidth(0.75f),
-            titles = listOf("Upcoming", "Past Matches"),
-            selectedTabIndex = selectedTabIndex,
-            onTabClick = { index ->
-                selectedTabIndex = index
-            }
+            tabs = MatchTab.entries,
+            selectedTab = uiState.selectedTab,
+            onTabClick = onTabClick
         )
         // Animation might be tricky, though
-        when (selectedTabIndex) {
-            0 -> {
+        when (uiState.selectedTab) {
+            MatchTab.UPCOMING -> {
                 UpcomingMatchesList(matches = uiState.matches)
             }
 
-            1 -> {
+            MatchTab.PAST -> {
                 PastMatchesList(matches = uiState.matches)
-            }
-            else -> {
-                Log.d("UpcomingMatchesScreen", "quit hacking me you son of a bitch" )
             }
         }
     }

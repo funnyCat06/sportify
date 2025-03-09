@@ -13,5 +13,6 @@ fun SportifyApp(
     MatchesScreen(
         uiState = viewModel.state.collectAsStateWithLifecycle().value,
         onCompetitionClick = viewModel::changeSelectedId,
+        onTabClick = viewModel::changeSelectedTab
     )
 }
