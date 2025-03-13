@@ -50,7 +50,11 @@ class MatchViewModel(
                 it.copy(isLoading = true)
             }
             matchDataSource
-                .getMatchesByCompetitionId(state.value.selectedCompetitionId, state.value.selectedTab.dateFrom, state.value.selectedTab.dateTo)
+                .getMatchesByCompetitionId(
+                    _state.value.selectedCompetitionId,
+                    _state.value.selectedTab.dateFrom,
+                    _state.value.selectedTab.dateTo
+                )
                 .onSuccess { matches ->
                     _state.update { state ->
                         state.copy(
@@ -58,7 +62,8 @@ class MatchViewModel(
                                 match.toUpcomingMatchUi()
                             }.groupBy {
                                 it.dateTime.toLocalDate()
-                            }
+                            },
+                            isLoading = false
                         )
                     }
                 }
@@ -83,7 +88,8 @@ class MatchViewModel(
                             competitions = competitions.map { competition ->
                                 competition.toCompetitionUi()
                             },
-                            selectedCompetitionId = competitions.first().id
+                            selectedCompetitionId = competitions.first().id,
+                            isLoading = false
                         )
                     }
                     loadMatches()

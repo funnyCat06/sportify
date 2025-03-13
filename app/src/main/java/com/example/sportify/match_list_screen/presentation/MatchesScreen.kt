@@ -1,12 +1,17 @@
 package com.example.sportify.match_list_screen.presentation
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.sportify.core.presentation.theme.ui.SportifyTheme
@@ -29,12 +34,17 @@ fun MatchesScreen(
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         TopBar()
-        CompetitionRow(
+        if (uiState.isLoading) {
+            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator(color = Color(0xFFFF5050))
+            }
+        } else {
+            CompetitionRow(
             competitionUiItems = uiState.competitions,
             modifier = Modifier.fillMaxWidth(),
             onItemClick = onCompetitionClick
-        )
-
+            )
+        }
 
         MatchesTabRow(
             modifier = Modifier.fillMaxWidth(0.75f),
@@ -43,7 +53,15 @@ fun MatchesScreen(
             onTabClick = onTabClick
         )
         // Animation might be tricky, though
-        when (uiState.selectedTab) {
+        if (uiState.isLoading) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator(color = Color(0xFFFF5050))
+            }
+        } else {
+            when (uiState.selectedTab) {
             MatchTab.UPCOMING -> {
                 UpcomingMatchesList(matches = uiState.matches)
             }
@@ -51,7 +69,9 @@ fun MatchesScreen(
             MatchTab.PAST -> {
                 PastMatchesList(matches = uiState.matches)
             }
+            }
         }
+
     }
 }
 

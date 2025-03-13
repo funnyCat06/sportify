@@ -9,16 +9,20 @@ import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
+import com.example.sportify.R
 import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
 import com.example.sportify.match_list_screen.presentation.CompetitionUi
 
@@ -31,8 +35,7 @@ fun CompetitionListItem(
     Column(
         modifier = modifier
             .width(IntrinsicSize.Min)
-            .clickable(onClick = onItemClick)
-        ,
+            .clickable(onClick = onItemClick),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
@@ -44,7 +47,7 @@ fun CompetitionListItem(
             AsyncImage(
                 model = competitionUi.emblem,
                 contentDescription = null,
-                modifier = Modifier.size(58.dp)
+                modifier = Modifier.size(58.dp),
             )
         }
         Text(
