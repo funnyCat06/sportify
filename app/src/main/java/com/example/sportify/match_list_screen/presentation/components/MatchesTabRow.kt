@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.sportify.core.presentation.theme.ui.GayRed
 import com.example.sportify.core.presentation.theme.ui.SportifyTheme
 import com.example.sportify.match_list_screen.presentation.MatchTab
 
@@ -27,7 +28,7 @@ fun MatchesTabRow(
         if (selectedTab.ordinal < tabPositions.size) {
             TabRowDefaults.SecondaryIndicator(
                 modifier = Modifier.tabIndicatorOffset(tabPositions[selectedTab.ordinal]),
-                color = Color(0xFFFF5050)
+                color = GayRed
             )
         }
     },
