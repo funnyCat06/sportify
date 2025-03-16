@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.sportify.core.presentation.theme.ui.GayRed
 import com.example.sportify.core.presentation.theme.ui.bebasNueueFontFamily
 import com.example.sportify.core.presentation.theme.ui.chipShape
 import com.example.sportify.core.presentation.theme.ui.manropeFontFamily
@@ -37,7 +38,7 @@ fun TopBar() {
         Row(
             modifier = Modifier
                 .clip(chipShape)
-                .background(Color(0xFFFF5050))
+                .background(GayRed)
                 .padding(start = 24.dp, end = 16.dp, top = 4.dp, bottom = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {

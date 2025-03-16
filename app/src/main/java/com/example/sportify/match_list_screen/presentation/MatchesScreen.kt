@@ -11,9 +11,9 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.sportify.core.presentation.theme.ui.GayRed
 import com.example.sportify.core.presentation.theme.ui.SportifyTheme
 import com.example.sportify.match_list_screen.presentation.components.CompetitionRow
 import com.example.sportify.match_list_screen.presentation.components.MatchesTabRow
@@ -35,43 +35,36 @@ fun MatchesScreen(
     ) {
         TopBar()
         if (uiState.isLoading) {
-            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator(color = Color(0xFFFF5050))
-            }
-        } else {
-            CompetitionRow(
-            competitionUiItems = uiState.competitions,
-            modifier = Modifier.fillMaxWidth(),
-            onItemClick = onCompetitionClick
-            )
-        }
-
-        MatchesTabRow(
-            modifier = Modifier.fillMaxWidth(0.75f),
-            tabs = MatchTab.entries,
-            selectedTab = uiState.selectedTab,
-            onTabClick = onTabClick
-        )
-        // Animation might be tricky, though
-        if (uiState.isLoading) {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                CircularProgressIndicator(color = Color(0xFFFF5050))
+                CircularProgressIndicator(color = GayRed)
             }
         } else {
-            when (uiState.selectedTab) {
-            MatchTab.UPCOMING -> {
-                UpcomingMatchesList(matches = uiState.matches)
-            }
+            CompetitionRow(
+                competitionUiItems = uiState.competitions,
+                modifier = Modifier.fillMaxWidth(),
+                onItemClick = onCompetitionClick
+            )
 
-            MatchTab.PAST -> {
-                PastMatchesList(matches = uiState.matches)
-            }
+            MatchesTabRow(
+                modifier = Modifier.fillMaxWidth(0.75f),
+                tabs = MatchTab.entries,
+                selectedTab = uiState.selectedTab,
+                onTabClick = onTabClick
+            )
+            // Animation might be tricky, though
+            when (uiState.selectedTab) {
+                MatchTab.UPCOMING -> {
+                    UpcomingMatchesList(matches = uiState.matches)
+                }
+
+                MatchTab.PAST -> {
+                    PastMatchesList(matches = uiState.matches)
+                }
             }
         }
-
     }
 }
 
