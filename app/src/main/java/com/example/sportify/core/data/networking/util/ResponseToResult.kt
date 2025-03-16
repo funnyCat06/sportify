@@ -15,6 +15,7 @@ suspend inline fun <reified T> responseToResult(response: HttpResponse): Result<
                 Result.Error(NetworkError.SERIALIZATION_ERROR)
             }
         }
+        408 -> Result.Error(NetworkError.REQUEST_TIMEOUT)
         in 400..499 -> Result.Error(NetworkError.CLIENT_ERROR)
         in 500..599 -> Result.Error(NetworkError.SERVER_ERROR)
         else -> Result.Error(NetworkError.UNKNOWN_ERROR)
