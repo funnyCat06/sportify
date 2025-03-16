@@ -1,6 +1,5 @@
 package com.example.sportify.match_list_screen.presentation
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sportify.core.domain.onError
@@ -9,9 +8,11 @@ import com.example.sportify.match_list_screen.domain.MatchDataSource
 import com.example.sportify.match_list_screen.domain.entities.Match
 import com.example.sportify.match_list_screen.domain.mappers.toCompetitionUi
 import com.example.sportify.match_list_screen.domain.mappers.toUpcomingMatchUi
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -29,6 +30,9 @@ class MatchViewModel(
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = MatchesListState()
         )
+
+    private val _events = Channel<MatchListEvent>()
+    val events = _events.receiveAsFlow()
 
     fun changeSelectedCompetitionId(competitionId: Int) {
         _state.update {
@@ -58,17 +62,18 @@ class MatchViewModel(
                 .onSuccess { matches ->
                     _state.update { state ->
                         state.copy(
+                            isLoading = false,
                             matches = matches.map { match: Match ->
                                 match.toUpcomingMatchUi()
                             }.groupBy {
                                 it.dateTime.toLocalDate()
-                            },
-                            isLoading = false
+                            }
                         )
                     }
                 }
                 .onError { networkError ->
-                    Log.d("loadMatches", networkError.name)
+                    _state.update { it.copy(isLoading = false) }
+                    _events.send(MatchListEvent.Error(networkError))
                 }
         }
     }
@@ -95,7 +100,8 @@ class MatchViewModel(
                     loadMatches()
                 }
                 .onError { networkError ->
-                    Log.d("loadMatches", networkError.name)
+                    _state.update { it.copy(isLoading = false) }
+                    _events.send(MatchListEvent.Error(networkError))
                 }
         }
     }
