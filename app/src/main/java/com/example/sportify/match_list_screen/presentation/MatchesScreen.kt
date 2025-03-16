@@ -35,7 +35,10 @@ fun MatchesScreen(
     ) {
         TopBar()
         if (uiState.isLoading) {
-            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
                 CircularProgressIndicator(color = GayRed)
             }
         } else {
@@ -44,23 +47,14 @@ fun MatchesScreen(
                 modifier = Modifier.fillMaxWidth(),
                 onItemClick = onCompetitionClick
             )
-        }
 
-        MatchesTabRow(
-            modifier = Modifier.fillMaxWidth(0.75f),
-            tabs = MatchTab.entries,
-            selectedTab = uiState.selectedTab,
-            onTabClick = onTabClick
-        )
-        // Animation might be tricky, though
-        if (uiState.isLoading) {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator(color = GayRed)
-            }
-        } else {
+            MatchesTabRow(
+                modifier = Modifier.fillMaxWidth(0.75f),
+                tabs = MatchTab.entries,
+                selectedTab = uiState.selectedTab,
+                onTabClick = onTabClick
+            )
+            // Animation might be tricky, though
             when (uiState.selectedTab) {
                 MatchTab.UPCOMING -> {
                     UpcomingMatchesList(matches = uiState.matches)
@@ -71,7 +65,6 @@ fun MatchesScreen(
                 }
             }
         }
-
     }
 }
 
