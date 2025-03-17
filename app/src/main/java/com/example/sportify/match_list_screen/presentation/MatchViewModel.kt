@@ -22,9 +22,7 @@ class MatchViewModel(
 ) : ViewModel() {
     private val _state = MutableStateFlow(MatchesListState())
     val state = _state
-        .onStart {
-            loadCompetitions()
-        }
+        .onStart { loadCompetitions() }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
