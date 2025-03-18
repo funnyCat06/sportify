@@ -32,7 +32,7 @@ fun SportifyApp(
         when (event) {
             is MatchListEvent.Error -> {
                 scope.launch {
-                   snackbarHostState.showSnackbar(event.error.toString())
+                   snackbarHostState.showSnackbar(event.error.toString(context))
                 }
             }
         }
