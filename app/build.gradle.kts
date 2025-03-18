@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     kotlin("plugin.serialization") version "2.0.20"
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -80,7 +81,9 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     coreLibraryDesugaring(libs.desugar.jdk.libs)
-
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 
 
     testImplementation(libs.junit)
