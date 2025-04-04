@@ -8,7 +8,7 @@ import com.example.sportify.core.domain.Result
 import com.example.sportify.core.domain.map
 import com.example.sportify.match_list_screen.domain.MatchDataSource
 import com.example.sportify.match_list_screen.domain.entities.Competition
-import com.example.sportify.match_list_screen.domain.entities.NetworkMatch
+import com.example.sportify.match_list_screen.domain.entities.Match
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
@@ -21,7 +21,7 @@ class MatchRemoteDataSource(private val httpClient: HttpClient) : MatchDataSourc
         id: Int,
         dateFrom: LocalDate,
         dateTo: LocalDate
-    ): Result<List<NetworkMatch>, NetworkError> {
+    ): Result<List<Match>, NetworkError> {
         return safeCall<MatchesDto> {
             httpClient.get(constructUrl("/competitions/$id/matches")) {
                 headers.append("X-Auth-Token", BuildConfig.API_KEY)
@@ -29,7 +29,7 @@ class MatchRemoteDataSource(private val httpClient: HttpClient) : MatchDataSourc
                 parameter("dateTo", dateTo)
             }
         }.map { matchesDto ->
-            matchesDto.networkMatches
+            matchesDto.matches
         }
     }
 

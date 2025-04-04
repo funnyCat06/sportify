@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.sportify.core.domain.onError
 import com.example.sportify.core.domain.onSuccess
 import com.example.sportify.match_list_screen.domain.MatchDataSource
-import com.example.sportify.match_list_screen.domain.entities.NetworkMatch
+import com.example.sportify.match_list_screen.domain.entities.Match
 import com.example.sportify.match_list_screen.domain.mappers.toCompetitionUi
 import com.example.sportify.match_list_screen.domain.mappers.toUpcomingMatchUi
 import kotlinx.coroutines.channels.Channel
@@ -61,8 +61,8 @@ class MatchViewModel(
                     _state.update { state ->
                         state.copy(
                             isLoading = false,
-                            matches = matches.map { networkMatch: NetworkMatch ->
-                                networkMatch.toUpcomingMatchUi()
+                            matches = matches.map { match: Match ->
+                                match.toUpcomingMatchUi()
                             }.groupBy {
                                 it.dateTime.toLocalDate()
                             }

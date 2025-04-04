@@ -3,7 +3,7 @@ package com.example.sportify.match_list_screen.domain.entities
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class NetworkMatch(
+data class Match(
     val id: Int,
     val area: Area,
     val awayTeam: Team,
