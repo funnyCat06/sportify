@@ -24,9 +24,9 @@ import com.example.sportify.match_list_screen.presentation.components.UpcomingMa
 @Composable
 fun MatchesScreen(
     uiState: MatchesListState = MatchesListState(),
-    onCompetitionClick: (Int) -> Unit = { },
-    onTabClick: (MatchTab) -> Unit = { },
-    onRefresh: () -> Unit
+    onCompetitionClick: (Int) -> Unit = {},
+    onTabClick: (MatchTab) -> Unit = {},
+    onRefresh: () -> Unit = {}
 ) {
     Column(
         modifier = Modifier
@@ -93,6 +93,6 @@ fun MatchesScreen(
 @Composable
 private fun UpcomingMatchesScreenPreview() {
     SportifyTheme {
-        MatchesScreen {}
+        MatchesScreen()
     }
 }
