@@ -23,7 +23,6 @@ fun MatchesTabRow(
     TabRow(
         selectedTabIndex = selectedTab.ordinal,
         modifier = modifier,
-        containerColor = Color(0xFFFAFAFA),
         indicator = { tabPositions ->
         if (selectedTab.ordinal < tabPositions.size) {
             TabRowDefaults.SecondaryIndicator(
