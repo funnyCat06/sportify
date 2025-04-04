@@ -46,6 +46,13 @@ class MatchViewModel(
         loadMatches()
     }
 
+    fun onRefresh() {
+        _state.update {
+            it.copy(isRefreshing = true)
+        }
+        loadMatches()
+    }
+
     private fun loadMatches() {
         viewModelScope.launch {
             _state.update {
@@ -61,6 +68,7 @@ class MatchViewModel(
                     _state.update { state ->
                         state.copy(
                             isLoading = false,
+                            isRefreshing = false,
                             matches = matches.map { match: Match ->
                                 match.toUpcomingMatchUi()
                             }.groupBy {
@@ -70,7 +78,7 @@ class MatchViewModel(
                     }
                 }
                 .onError { networkError ->
-                    _state.update { it.copy(isLoading = false) }
+                    _state.update { it.copy(isLoading = false, isRefreshing = false) }
                     _events.send(MatchListEvent.Error(networkError))
                 }
         }
@@ -92,7 +100,7 @@ class MatchViewModel(
                                 competition.toCompetitionUi()
                             },
                             selectedCompetitionId = competitions.first().id,
-                            isLoading = false
+                            isLoading = false,
                         )
                     }
                     loadMatches()

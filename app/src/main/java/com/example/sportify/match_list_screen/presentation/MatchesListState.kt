@@ -7,7 +7,8 @@ data class MatchesListState(
     val matches: Map<LocalDate, List<MatchUi>> = emptyMap(),
     val isLoading: Boolean = false,
     val selectedCompetitionId: Int = 2021,
-    val selectedTab: MatchTab = MatchTab.UPCOMING
+    val selectedTab: MatchTab = MatchTab.UPCOMING,
+    val isRefreshing: Boolean = true
 )
 
 val dummyCompetitionUi = CompetitionUi(id = 0, name = "Unknown", emblem = "")

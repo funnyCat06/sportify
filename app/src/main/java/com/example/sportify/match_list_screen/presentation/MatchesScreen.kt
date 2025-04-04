@@ -25,7 +25,8 @@ import com.example.sportify.match_list_screen.presentation.components.UpcomingMa
 fun MatchesScreen(
     uiState: MatchesListState = MatchesListState(),
     onCompetitionClick: (Int) -> Unit = { },
-    onTabClick: (MatchTab) -> Unit = { }
+    onTabClick: (MatchTab) -> Unit = { },
+    onRefresh: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -57,7 +58,11 @@ fun MatchesScreen(
             // Animation might be tricky, though
             when (uiState.selectedTab) {
                 MatchTab.UPCOMING -> {
-                    UpcomingMatchesList(matches = uiState.matches)
+                    UpcomingMatchesList(
+                        matches = uiState.matches,
+                        isRefreshing = uiState.isRefreshing,
+                        onRefresh = onRefresh
+                    )
                 }
 
                 MatchTab.PAST -> {
