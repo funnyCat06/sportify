@@ -35,27 +35,29 @@ fun MatchesScreen(
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
         TopBar()
-        if (uiState.isLoading) {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator(color = GayRed)
-            }
-        } else {
+        if (!uiState.isLoadingCompetitions) {
             CompetitionRow(
                 competitionUiItems = uiState.competitions,
                 modifier = Modifier.fillMaxWidth(),
                 onItemClick = onCompetitionClick
             )
+        } else {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Companion.Center
+            ) {
+                CircularProgressIndicator(color = GayRed)
+            }
+        }
 
-            MatchesTabRow(
-                modifier = Modifier.fillMaxWidth(0.75f),
-                tabs = MatchTab.entries,
-                selectedTab = uiState.selectedTab,
-                onTabClick = onTabClick
-            )
-            // Animation might be tricky, though
+        MatchesTabRow(
+            modifier = Modifier.fillMaxWidth(0.75f),
+            tabs = MatchTab.entries,
+            selectedTab = uiState.selectedTab,
+            onTabClick = onTabClick
+        )
+        if (!uiState.isLoadingMatches) {
             when (uiState.selectedTab) {
                 MatchTab.UPCOMING -> {
                     UpcomingMatchesList(
@@ -66,10 +68,23 @@ fun MatchesScreen(
                 }
 
                 MatchTab.PAST -> {
-                    PastMatchesList(matches = uiState.matches)
+                    PastMatchesList(
+                        matches = uiState.matches,
+                        isRefreshing = uiState.isRefreshing,
+                        onRefresh = onRefresh
+                    )
                 }
             }
+        } else {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Companion.Center
+            ) {
+                CircularProgressIndicator(color = GayRed)
+            }
         }
+
     }
 }
 

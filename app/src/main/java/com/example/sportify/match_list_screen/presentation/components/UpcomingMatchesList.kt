@@ -19,10 +19,10 @@ import java.time.LocalDate
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun UpcomingMatchesList(
-    modifier: Modifier = Modifier,
     matches: Map<LocalDate, List<MatchUi>>,
     isRefreshing: Boolean,
-    onRefresh: () -> Unit
+    onRefresh: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     PullToRefreshLazyColumn(
         modifier = modifier,

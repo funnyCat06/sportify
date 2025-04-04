@@ -5,12 +5,19 @@ import java.time.LocalDate
 data class MatchesListState(
     val competitions: List<CompetitionUi> = dummyCompetitions,
     val matches: Map<LocalDate, List<MatchUi>> = emptyMap(),
-    val isLoading: Boolean = false,
+    val isLoadingMatches: Boolean = false,
+    val isLoadingCompetitions: Boolean = false,
     val selectedCompetitionId: Int = 2021,
     val selectedTab: MatchTab = MatchTab.UPCOMING,
     val isRefreshing: Boolean = true
 )
 
-val dummyCompetitionUi = CompetitionUi(id = 0, name = "Unknown", emblem = "")
+val dummyCompetitionUi = CompetitionUi(
+    id = 0,
+    name = "Unknown",
+    emblem = ""
+)
 
-val dummyCompetitions = (1..10).map { dummyCompetitionUi }.toList()
+val dummyCompetitions = (1..10).map {
+    dummyCompetitionUi
+}.toList()

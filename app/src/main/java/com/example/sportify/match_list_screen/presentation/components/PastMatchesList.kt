@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,12 +19,16 @@ import java.time.LocalDate
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun PastMatchesList(
+    matches: Map<LocalDate, List<MatchUi>>,
+    isRefreshing: Boolean,
+    onRefresh: () -> Unit,
     modifier: Modifier = Modifier,
-    matches: Map<LocalDate, List<MatchUi>>
 ) {
-    LazyColumn(
+    PullToRefreshLazyColumn(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(24.dp)
+        verticalArrangement = Arrangement.spacedBy(24.dp),
+        isRefreshing = isRefreshing,
+        onRefresh = onRefresh,
     ) {
         matches.forEach { (date, matches) ->
             stickyHeader {

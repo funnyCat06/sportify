@@ -56,7 +56,7 @@ class MatchViewModel(
     private fun loadMatches() {
         viewModelScope.launch {
             _state.update {
-                it.copy(isLoading = true)
+                it.copy(isLoadingMatches = true)
             }
             matchDataSource
                 .getMatchesByCompetitionId(
@@ -67,7 +67,7 @@ class MatchViewModel(
                 .onSuccess { matches ->
                     _state.update { state ->
                         state.copy(
-                            isLoading = false,
+                            isLoadingMatches = false,
                             isRefreshing = false,
                             matches = matches.map { match: Match ->
                                 match.toUpcomingMatchUi()
@@ -78,7 +78,12 @@ class MatchViewModel(
                     }
                 }
                 .onError { networkError ->
-                    _state.update { it.copy(isLoading = false, isRefreshing = false) }
+                    _state.update {
+                        it.copy(
+                            isLoadingMatches = false,
+                            isRefreshing = false
+                        )
+                    }
                     _events.send(MatchListEvent.Error(networkError))
                 }
         }
@@ -88,7 +93,7 @@ class MatchViewModel(
         viewModelScope.launch {
             _state.update {
                 it.copy(
-                    isLoading = true
+                    isLoadingCompetitions = true
                 )
             }
             matchDataSource
@@ -100,13 +105,18 @@ class MatchViewModel(
                                 competition.toCompetitionUi()
                             },
                             selectedCompetitionId = competitions.first().id,
-                            isLoading = false,
+                            isLoadingCompetitions = false,
                         )
                     }
                     loadMatches()
                 }
                 .onError { networkError ->
-                    _state.update { it.copy(isLoading = false) }
+                    _state.update {
+                        it.copy(
+                            isLoadingCompetitions = false,
+                            isRefreshing = true
+                        )
+                    }
                     _events.send(MatchListEvent.Error(networkError))
                 }
         }
