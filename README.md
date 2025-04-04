@@ -13,8 +13,11 @@ A minimalist Android app showcasing upcoming football matches using:
 ---
 
 ## Screenshots
-![Upcoming Matches](./upcoming-matches.png)
-![Past Matches](./past-matches.png)  
+
+<div align="center">
+  <img src="./upcoming-matches.png" width="45%" alt="Upcoming Matches"/>
+  <img src="./past-matches.png" width="45%" alt="Past Matches"/>
+</div>
 
 
 ---
